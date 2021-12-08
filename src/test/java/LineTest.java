@@ -15,8 +15,8 @@ class LineTest {
         Line line5 = new Line(new Point2D.Double(3,4), new Point2D.Double(2,5));
 
         return new TestCase[]{
-//                new TestCase(line1, line2, null,null),
-//                new TestCase(line1, line3, new Point2D.Double(2.5,2.5), 90.0),
+                new TestCase(line1, line2, null,null),
+                new TestCase(line1, line3, new Point2D.Double(2.5,2.5), 90.0),
                 new TestCase(line4, line5, new Point2D.Double(1.0,6.0), 45.0),
         };
     }

@@ -25,8 +25,8 @@ class Line {
             throw new NoIntersectionError();
         }
 
-        var intersectionX = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 - y4 - y3 * x4)) / denominator;
-        var intersectionY = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 - y4 - y3 * x4)) / denominator;
+        var intersectionX = ((x1 * y2 - y1 * x2) * (x3 - x4) - (x1 - x2) * (x3 * y4 - y3 * x4)) / denominator;
+        var intersectionY = ((x1 * y2 - y1 * x2) * (y3 - y4) - (y1 - y2) * (x3 * y4 - y3 * x4)) / denominator;
 
         return new Point2D.Double(intersectionX, intersectionY);
     }
@@ -47,7 +47,9 @@ class Line {
             throw new NoIntersectionError();
         }
 
-        return Math.acos(scalarProduct) * (360 / (2 * Math.PI));
+        var angle = Math.acos(scalarProduct) * (360 / (2 * Math.PI));
+        angle = Math.round(angle * 100.0) / 100.0;
+        return angle;
     }
 
     static class NoIntersectionError extends Exception {
